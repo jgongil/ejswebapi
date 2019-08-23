@@ -26,6 +26,8 @@ Navigate to http://127.0.0.1:3000 , you´ll find a web page where you can explor
 You can also retrived records in JSON format using:
 http://127.0.0.1:3000/?txid=mytxid&out=json
 
+![](./docs/images/ejs.png)
+
 ## Technology Stack
 
 ![](./docs/images/EJSWebServerOnly.png)
