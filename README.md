@@ -1,4 +1,4 @@
-# Forensics Web Server
+# Web API Server with Express JS
 
 ejswebapi is a very simple web api server application which serves relational data coming from a SQL Database table.
 
