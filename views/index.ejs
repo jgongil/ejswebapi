@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- Stylesheets -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bform.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/datatables.min.css"/>
+    <!-- Scripts -->
+    <script type="text/javascript" src="/javascripts/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="/javascripts/datatables/formattable.js"></script>
+    </head>
+  <body class="d-flex flex-column">
+    <div id="page-content">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <h1 class="font-weight-light mt-4 text-white"><%= title %></h1>
+            <p class="lead text-white-50"><%= slogan %></p>
+              <form action="/" method="GET">
+              <div class="form-label-group">
+                <input type="text" id="txid" name="txid" class="form-control" placeholder="Transaction Id" autofocus>
+                <label for="txid">Transaction Identifier (TxID)</label>
+              </div>
+              <!-- <button class="btn btn-primary btn-lg" type="submit">Search</button> -->
+            </form>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class=tab-container>
+        <table id="tab-forensics" class="display compact order-column stripe cell-border" style="width:80%">
+          <thead id="tab-header">
+              <tr>
+                  <%if (data.length > 0) { %>
+                    <% Object.keys(data[0]).forEach(function (key) {%>
+                      <th><%= key %></th>
+                    <% }) %>
+                  <% } %>
+              </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i < data.length; i++) { %>
+              <tr>
+                <td><%= data[i].Txid %></td>
+                <td><%= data[i].Vintxid %></td>
+                <td><%= data[i].Fromaddress %></td>
+                <td><%= data[i].ToAddress %></td>
+                <td><%= data[i].FromValue %></td>
+                <td><%= data[i].ToValue %></td>
+                <td><%= data[i].HopName %></td>
+                <td><%= data[i].hopId %></td>
+              </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy; mysite.com</small>
+      </div>
+    </footer>
+  </body>
+</html>
